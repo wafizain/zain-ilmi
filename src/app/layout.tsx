@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Zain Ilmi | Bimbel & Les Privat di Bandung",
 
   description:
-    "Bimbel dan les privat di Bandung untuk Pra-SD & Calistung, SD, SMP, dan SMA dengan suasana belajar yang nyaman dan pendampingan personal.",
+    "Bimbel di Bandung untuk Pra-SD & Calistung, SD, SMP, dan SMA dengan suasana belajar yang nyaman dan pendampingan personal.",
 
   openGraph: {
     title: "Zain Ilmi",
