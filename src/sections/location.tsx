@@ -8,16 +8,20 @@ export default function Location() {
   return (
     <section
       id="lokasi"
+      aria-labelledby="lokasi-heading"
       className="bg-white py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Left Content */}
         <div>
-          <div className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
+          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
             Lokasi Belajar
-          </div>
+          </p>
 
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            id="lokasi-heading"
+            className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Belajar Nyaman untuk
             <span className="text-teal-700"> Tumbuh Lebih Baik</span>
           </h2>

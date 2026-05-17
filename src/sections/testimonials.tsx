@@ -25,16 +25,20 @@ export default function Testimonials() {
   return (
     <section
       id="testimoni"
+      aria-labelledby="testimoni-heading"
       className="relative bg-slate-50 py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
+          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
             Testimoni Orang Tua
-          </div>
+          </p>
 
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            id="testimoni-heading"
+            className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Kepercayaan Orang Tua adalah
             <span className="text-teal-700"> Prioritas Kami</span>
           </h2>

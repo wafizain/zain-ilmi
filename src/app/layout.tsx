@@ -1,6 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
+
 import "./globals.css";
+
+import {
+  siteConfig,
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+  buildLocalBusinessSchema,
+} from "@/lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -9,35 +18,91 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Zain Ilmi | Bimbingan belajar di Bandung",
+  metadataBase: new URL(siteConfig.url),
 
-  description:
-    "Bimbel di Bandung untuk Pra-SD & Calistung, SD, SMP, dan SMA dengan suasana belajar yang nyaman dan pendampingan personal.",
+  title: {
+    default: `${siteConfig.name} | Bimbel Bandung untuk Pra-SD, SD, SMP, dan SMA`,
+    template: `%s | ${siteConfig.name}`,
+  },
+
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  applicationName: siteConfig.name,
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  category: "education",
+
+  alternates: {
+    canonical: "/",
+    languages: {
+      "id-ID": "/",
+    },
+  },
 
   openGraph: {
-    title: "Zain Ilmi",
-    description:
-      "Bimbingan belajar dengan suasana belajar nyaman dan pendampingan personal.",
-    url: "https://zainilmi.web.id",
-    siteName: "Zain Ilmi",
+    title: `${siteConfig.name} | Bimbel Bandung untuk Pra-SD, SD, SMP, dan SMA`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Zain Ilmi",
+        alt: `${siteConfig.name} - Bimbingan Belajar di Bandung`,
+        type: "image/png",
       },
     ],
-    locale: "id_ID",
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Zain Ilmi",
-    description:
-      "Bimbingan Belajar dengan suasana belajar yang nyaman dan terarah.",
-    images: ["/og-image.png"],
+    title: `${siteConfig.name} | Bimbel Bandung`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/icon.svg" }],
+    shortcut: ["/icon.svg"],
+  },
+
+  manifest: "/manifest.webmanifest",
+
+  // Verification meta - isi token di siteConfig.verification setelah daftar
+  verification: {
+    google: siteConfig.verification.google || undefined,
+    yandex: siteConfig.verification.yandex || undefined,
+    other: siteConfig.verification.bing
+      ? { "msvalidate.01": siteConfig.verification.bing }
+      : undefined,
+  },
+
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
   },
 };
 
@@ -46,6 +111,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: "#0f766e",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -53,12 +119,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Build JSON-LD untuk Organization, LocalBusiness, dan WebSite
+  const ldJson = [
+    buildOrganizationSchema(),
+    buildLocalBusinessSchema(),
+    buildWebsiteSchema(),
+  ];
+
   return (
-    <html lang="id" className="scroll-smooth">
+    <html lang={siteConfig.language} className="scroll-smooth">
+      <head>
+        {/* Preconnect ke Google Maps untuk perf maps embed */}
+        <link rel="preconnect" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+      </head>
       <body
         className={`${jakarta.variable} font-sans antialiased overflow-x-hidden`}
       >
         {children}
+
+        {/* Structured Data - Organization, LocalBusiness, WebSite */}
+        <Script
+          id="ld-json-site"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(ldJson),
+          }}
+        />
       </body>
     </html>
   );

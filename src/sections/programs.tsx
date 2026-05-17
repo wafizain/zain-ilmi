@@ -40,16 +40,20 @@ export default function Programs() {
   return (
     <section
       id="program"
+      aria-labelledby="program-heading"
       className="relative bg-white py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
+          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
             Program Belajar
-          </div>
+          </p>
 
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            id="program-heading"
+            className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Pendampingan Belajar untuk
             <span className="text-teal-700"> Semua Jenjang</span>
           </h2>
@@ -72,6 +76,7 @@ export default function Programs() {
               >
                 <div
                   className={`flex h-14 w-14 items-center justify-center rounded-2xl ${program.color} sm:h-16 sm:w-16`}
+                  aria-hidden="true"
                 >
                   <Icon className="h-7 w-7 sm:h-[30px] sm:w-[30px]" />
                 </div>

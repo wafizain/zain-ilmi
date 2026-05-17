@@ -8,11 +8,13 @@ import {
 } from "lucide-react";
 
 import { motion } from "framer-motion";
+import { siteConfig } from "@/lib/seo";
 
 export default function Hero() {
   return (
     <section
       id="home"
+      aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-slate-50"
     >
       {/* Background Glow - dibatasi agar tidak bikin overflow di mobile */}
@@ -32,12 +34,15 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="mb-5 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
-            Bimbingan Belajar Pra-SD hingga SMA
-          </div>
+          <p className="mb-5 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
+            Bimbingan Belajar Pra-SD hingga SMA di Bandung
+          </p>
 
-          <h1 className="text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-            Ruang Belajar Nyaman untuk,
+          <h1
+            id="hero-heading"
+            className="text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            Ruang Belajar Nyaman untuk
             <span className="text-teal-700">
               {" "}
               Generasi Masa Depan
@@ -51,10 +56,16 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex sm:mt-10">
-            <button className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98] sm:w-auto sm:px-7 sm:py-4">
+            <a
+              href={siteConfig.social.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Daftar bimbel Zain Ilmi via WhatsApp"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98] sm:w-auto sm:px-7 sm:py-4"
+            >
               Daftar Sekarang
-              <ArrowRight size={18} />
-            </button>
+              <ArrowRight size={18} aria-hidden="true" />
+            </a>
           </div>
         </motion.div>
 
@@ -64,6 +75,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
+          aria-hidden="true"
         >
           {/* Main Card */}
           <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-xl backdrop-blur sm:p-6 md:rounded-[32px] md:p-8 md:shadow-2xl">
@@ -73,9 +85,9 @@ export default function Hero() {
               </div>
 
               <div className="min-w-0">
-                <h3 className="text-base font-bold text-slate-900 sm:text-lg">
+                <p className="text-base font-bold text-slate-900 sm:text-lg">
                   Pendampingan Personal
-                </h3>
+                </p>
 
                 <p className="text-xs text-slate-500 sm:text-sm">
                   Suasana belajar nyaman dan terarah
@@ -90,9 +102,9 @@ export default function Hero() {
                 </div>
 
                 <div className="min-w-0">
-                  <h4 className="text-sm font-semibold text-slate-800 sm:text-base">
+                  <p className="text-sm font-semibold text-slate-800 sm:text-base">
                     Materi Terstruktur
-                  </h4>
+                  </p>
 
                   <p className="text-xs text-slate-500 sm:text-sm">
                     Pembelajaran sesuai kebutuhan siswa
@@ -106,9 +118,9 @@ export default function Hero() {
                 </div>
 
                 <div className="min-w-0">
-                  <h4 className="text-sm font-semibold text-slate-800 sm:text-base">
+                  <p className="text-sm font-semibold text-slate-800 sm:text-base">
                     Kelas Lebih Fokus
-                  </h4>
+                  </p>
 
                   <p className="text-xs text-slate-500 sm:text-sm">
                     Pendekatan personal dan nyaman
@@ -117,8 +129,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-
-
         </motion.div>
       </div>
     </section>

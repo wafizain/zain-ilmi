@@ -36,16 +36,20 @@ export default function WhyUs() {
   return (
     <section
       id="tentang"
+      aria-labelledby="why-us-heading"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
+          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
             Kenapa Memilih Zain Ilmi
-          </div>
+          </p>
 
-          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            id="why-us-heading"
+            className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+          >
             Pendampingan Belajar yang
             <span className="text-teal-700"> Nyaman dan Terarah</span>
           </h2>
@@ -67,7 +71,10 @@ export default function WhyUs() {
                 key={index}
                 className="group rounded-3xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-teal-100 hover:shadow-2xl sm:p-7 md:p-8 md:hover:-translate-y-2"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 transition group-hover:bg-teal-700 group-hover:text-white sm:h-16 sm:w-16">
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 transition group-hover:bg-teal-700 group-hover:text-white sm:h-16 sm:w-16"
+                  aria-hidden="true"
+                >
                   <Icon className="h-7 w-7 sm:h-[30px] sm:w-[30px]" />
                 </div>
 

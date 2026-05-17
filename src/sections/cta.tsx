@@ -1,8 +1,15 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
+import { siteConfig } from "@/lib/seo";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28">
+    <section
+      id="kontak"
+      aria-labelledby="kontak-heading"
+      className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+    >
       {/* Background Glow */}
       <div
         aria-hidden="true"
@@ -12,11 +19,14 @@ export default function CTA() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-br from-teal-700 to-emerald-600 px-6 py-12 text-center text-white shadow-2xl sm:rounded-[32px] sm:px-8 sm:py-16 md:rounded-[40px] md:px-12 md:py-20 lg:px-16">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 sm:px-4 sm:py-2 sm:text-sm">
+            <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 sm:px-4 sm:py-2 sm:text-sm">
               Mulai Belajar Bersama Zain Ilmi
-            </div>
+            </p>
 
-            <h2 className="text-2xl font-extrabold leading-[1.15] tracking-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <h2
+              id="kontak-heading"
+              className="text-2xl font-extrabold leading-[1.15] tracking-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
+            >
               Dampingi Perjalanan Belajar Anak dengan Lebih Nyaman
             </h2>
 
@@ -26,10 +36,16 @@ export default function CTA() {
             </p>
 
             <div className="mt-8 flex flex-col items-stretch justify-center sm:mt-10 sm:flex-row sm:items-center">
-              <button className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-teal-700 transition hover:bg-slate-100 active:scale-[0.98] sm:px-7 sm:py-4">
+              <a
+                href={siteConfig.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Daftar bimbel Zain Ilmi via WhatsApp"
+                className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-teal-700 transition hover:bg-slate-100 active:scale-[0.98] sm:px-7 sm:py-4"
+              >
                 Daftar Sekarang
-                <ArrowRight size={18} />
-              </button>
+                <ArrowRight size={18} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </div>
