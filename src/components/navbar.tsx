@@ -66,7 +66,7 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-2">
           <button className="hidden rounded-full bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800 md:inline-flex lg:px-6 lg:py-3">
-            Konsultasi
+            Daftar Sekarang
           </button>
 
           {/* Mobile Toggle */}
@@ -107,7 +107,7 @@ export default function Navbar() {
                 onClick={handleClose}
                 className="mt-3 w-full rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98]"
               >
-                Konsultasi
+                Daftar Sekarang
               </button>
             </nav>
           </motion.div>

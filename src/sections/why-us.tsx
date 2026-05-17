@@ -10,7 +10,7 @@ const features = [
     icon: Home,
     title: "Suasana Belajar Nyaman",
     description:
-      "Lingkungan belajar rumahan yang tenang dan mendukung fokus siswa.",
+      "Lingkungan belajar yang tenang dan mendukung fokus siswa.",
   },
   {
     icon: Users,

@@ -33,31 +33,27 @@ export default function Hero() {
           transition={{ duration: 0.7 }}
         >
           <div className="mb-5 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
-            Bimbingan Belajar TK hingga SMA
+            Bimbingan Belajar Pra-SD hingga SMA
           </div>
 
           <h1 className="text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-            Belajar Nyaman,
+            Ruang Belajar Nyaman untuk,
             <span className="text-teal-700">
               {" "}
-              Prestasi Lebih Terarah
+              Generasi Masa Depan
             </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg md:text-xl">
-            Zain Ilmi hadir sebagai bimbingan belajar rumahan dengan suasana nyaman,
+            Zain Ilmi hadir sebagai bimbingan belajar dengan suasana nyaman,
             pendampingan personal, dan pembelajaran yang terarah untuk membantu
             perkembangan akademik siswa.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+          <div className="mt-8 flex sm:mt-10">
             <button className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98] sm:w-auto sm:px-7 sm:py-4">
               Daftar Sekarang
               <ArrowRight size={18} />
-            </button>
-
-            <button className="w-full rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 active:scale-[0.98] sm:w-auto sm:px-7 sm:py-4">
-              Konsultasi Gratis
             </button>
           </div>
         </motion.div>
@@ -122,16 +118,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Floating Card - posisi aman di mobile (tidak keluar viewport) */}
-          <div className="absolute -bottom-4 left-4 rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-xl backdrop-blur sm:-bottom-6 sm:-left-6 sm:rounded-3xl sm:px-6 sm:py-4">
-            <p className="text-xs text-slate-500 sm:text-sm">
-              Siswa Aktif
-            </p>
 
-            <h3 className="mt-0.5 text-2xl font-bold text-teal-700 sm:mt-1 sm:text-3xl">
-              200+
-            </h3>
-          </div>
         </motion.div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export default function Location() {
 
           <p className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
             Zain Ilmi menyediakan lingkungan belajar yang nyaman,
-            tenang, dan mendukung perkembangan akademik siswa dari TK hingga SMA.
+            tenang, dan mendukung perkembangan akademik siswa dari Pra-SD hingga SMA.
           </p>
 
           <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
@@ -37,7 +37,7 @@ export default function Location() {
                 <h3 className="font-bold text-slate-900">Alamat</h3>
 
                 <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                  Isi alamat lengkap Zain Ilmi di sini
+                  Jl. Maleber Utara Gg. Bakti 04 No.197, RT.02/RW.08, Maleber, Kec. Andir, Kota Bandung, Jawa Barat 40184
                 </p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function Location() {
                 <h3 className="font-bold text-slate-900">Jam Belajar</h3>
 
                 <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                  Senin - Sabtu • 13.00 - 20.00
+                  Senin - Sabtu • 08.00 - 17.00
                 </p>
               </div>
             </div>
@@ -62,10 +62,10 @@ export default function Location() {
               </div>
 
               <div className="min-w-0">
-                <h3 className="font-bold text-slate-900">Kontak</h3>
+                <h3 className="font-bold text-slate-900">Whatsapp</h3>
 
                 <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                  08xxxxxxxxxx
+                  081290964840
                 </p>
               </div>
             </div>

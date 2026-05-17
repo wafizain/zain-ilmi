@@ -8,30 +8,30 @@ import {
 const programs = [
   {
     icon: Baby,
-    title: "Program TK",
+    title: "Pra-SD & Calistung",
     description:
-      "Membantu anak belajar dasar membaca, menulis, berhitung, dan membangun semangat belajar.",
+      "Membantu anak belajar membaca, menulis, dan berhitung dengan metode yang nyaman, menyenangkan, dan mudah dipahami.",
     color: "bg-pink-50 text-pink-600",
   },
   {
     icon: BookOpen,
     title: "Program SD",
     description:
-      "Pendampingan belajar untuk membantu siswa memahami materi sekolah dengan lebih nyaman.",
+      "Pendampingan belajar sekolah dasar untuk membantu siswa memahami materi dengan lebih fokus dan nyaman.",
     color: "bg-blue-50 text-blue-600",
   },
   {
     icon: School,
     title: "Program SMP",
     description:
-      "Fokus meningkatkan pemahaman materi dan membangun kebiasaan belajar yang terarah.",
+      "Membantu siswa meningkatkan pemahaman materi dan membangun kebiasaan belajar yang lebih terarah.",
     color: "bg-emerald-50 text-emerald-600",
   },
   {
     icon: GraduationCap,
     title: "Program SMA",
     description:
-      "Persiapan akademik yang lebih fokus untuk membantu siswa menghadapi ujian dan target belajar.",
+      "Pendalaman materi sekolah dan persiapan akademik untuk membantu siswa mencapai target belajar.",
     color: "bg-purple-50 text-purple-600",
   },
 ];
@@ -84,9 +84,14 @@ export default function Programs() {
                   {program.description}
                 </p>
 
-                <button className="mt-6 text-sm font-semibold text-teal-700 transition hover:text-teal-800 sm:mt-8">
+                <a
+                  href={`https://wa.me/6281290964840?text=Halo%20saya%20ingin%20bertanya%20tentang%20${program.title}%20di%20Zain%20Ilmi`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block text-sm font-semibold text-teal-700 transition hover:text-teal-800 sm:mt-8"
+                >
                   Pelajari Lebih Lanjut →
-                </button>
+                </a>
               </div>
             );
           })}

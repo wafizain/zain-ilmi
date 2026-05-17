@@ -5,19 +5,19 @@ const testimonials = [
     name: "Ibu Rina",
     role: "Orang Tua Siswa SD",
     message:
-      "Anak saya jadi lebih semangat belajar dan lebih percaya diri sejak mengikuti bimbingan di Zain Ilmi.",
+      "Awalnya anak saya agak susah fokus belajar, tapi setelah ikut di Zain Ilmi jadi lebih semangat dan lebih percaya diri saat belajar di sekolah.",
   },
   {
     name: "Bapak Andi",
     role: "Orang Tua Siswa SMP",
     message:
-      "Suasana belajarnya nyaman dan tentornya sabar. Anak jadi lebih fokus saat belajar.",
+      "Suasana belajarnya nyaman dan pengajar sabar menghadapi anak-anak. Sekarang anak saya jadi lebih rajin belajar tanpa harus disuruh terus.",
   },
   {
     name: "Ibu Salsabila",
     role: "Orang Tua Siswa SMA",
     message:
-      "Pendampingan belajarnya terasa lebih personal dibanding bimbel lain. Sangat membantu perkembangan akademik anak.",
+      "Saya suka karena pendekatannya lebih personal dan tidak terlalu kaku. Anak jadi lebih nyaman bertanya kalau ada materi yang belum dipahami.",
   },
 ];
 

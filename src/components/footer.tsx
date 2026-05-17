@@ -95,7 +95,7 @@ export default function Footer() {
                 size={18}
                 className="mt-0.5 shrink-0 text-teal-700"
               />
-              <p className="min-w-0 break-words">Alamat Zain Ilmi</p>
+              <p className="min-w-0 break-words">Jl. Maleber Utara Gg. Bakti 04 No.197, RT.02/RW.08, Maleber, Kec. Andir, Kota Bandung, Jawa Barat 40184</p>
             </div>
 
             <div className="flex items-center gap-3">
@@ -104,11 +104,11 @@ export default function Footer() {
                 href="tel:08xxxxxxxxxx"
                 className="break-all transition hover:text-teal-700"
               >
-                08xxxxxxxxxx
+                081290964840
               </a>
             </div>
 
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <Mail size={18} className="shrink-0 text-teal-700" />
               <a
                 href="mailto:zainilmi@gmail.com"
@@ -116,9 +116,9 @@ export default function Footer() {
               >
                 zainilmi@gmail.com
               </a>
-            </div>
+            </div> */}
 
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <InstagramIcon className="shrink-0 text-teal-700" />
               <a
                 href="https://instagram.com/zainilmi"
@@ -128,7 +128,7 @@ export default function Footer() {
               >
                 @zainilmi
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

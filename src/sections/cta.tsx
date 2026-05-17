@@ -25,14 +25,10 @@ export default function CTA() {
               pendampingan yang lebih personal, dan pembelajaran yang terarah.
             </p>
 
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-8 flex flex-col items-stretch justify-center sm:mt-10 sm:flex-row sm:items-center">
               <button className="flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-teal-700 transition hover:bg-slate-100 active:scale-[0.98] sm:px-7 sm:py-4">
                 Daftar Sekarang
                 <ArrowRight size={18} />
-              </button>
-
-              <button className="rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20 active:scale-[0.98] sm:px-7 sm:py-4">
-                Konsultasi Gratis
               </button>
             </div>
           </div>
