@@ -9,7 +9,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Zain Ilmi | Bimbel & Les Privat di Bandung",
+  title: "Zain Ilmi | Bimbingan belajar di Bandung",
 
   description:
     "Bimbel di Bandung untuk Pra-SD & Calistung, SD, SMP, dan SMA dengan suasana belajar yang nyaman dan pendampingan personal.",
