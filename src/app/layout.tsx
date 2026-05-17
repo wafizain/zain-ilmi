@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zain Ilmi",
     description:
-      "Bimbel dan les privat dengan suasana belajar nyaman dan pendampingan personal.",
+      "Bimbingan belajar dengan suasana belajar nyaman dan pendampingan personal.",
     url: "https://zainilmi.web.id",
     siteName: "Zain Ilmi",
     images: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zain Ilmi",
     description:
-      "Bimbel dengan suasana belajar yang nyaman dan terarah.",
+      "Bimbingan Belajar dengan suasana belajar yang nyaman dan terarah.",
     images: ["/og-image.png"],
   },
 };

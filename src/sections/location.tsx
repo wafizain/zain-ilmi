@@ -18,8 +18,8 @@ export default function Location() {
           </div>
 
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl">
-            Belajar Nyaman dalam
-            <span className="text-teal-700"> Suasana Rumahan</span>
+            Belajar Nyaman untuk
+            <span className="text-teal-700"> Tumbuh Lebih Baik</span>
           </h2>
 
           <p className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">

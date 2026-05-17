@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-base">
-            Bimbingan belajar rumahan dengan suasana nyaman,
+            Bimbingan belajar dengan suasana nyaman,
             pendampingan personal, dan pembelajaran yang terarah
             untuk membantu perkembangan akademik siswa.
           </p>
