@@ -9,30 +9,35 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Zain Ilmi | Bimbingan Belajar TK hingga SMA di Bandung",
+  title: "Zain Ilmi | Bimbel & Les Privat di Bandung",
 
   description:
-    "Zain Ilmi adalah bimbingan belajar rumahan di Bandung untuk TK, SD, SMP, dan SMA dengan suasana belajar nyaman, pendampingan personal, dan pembelajaran terarah.",
-
-  keywords: [
-    "bimbel bandung",
-    "bimbingan belajar bandung",
-    "les privat bandung",
-    "bimbel tk sd smp sma",
-    "bimbel rumahan",
-    "zain ilmi",
-  ],
-
-  authors: [{ name: "Zain Ilmi" }],
+    "Bimbel dan les privat di Bandung untuk Pra-SD & Calistung, SD, SMP, dan SMA dengan suasana belajar yang nyaman dan pendampingan personal.",
 
   openGraph: {
     title: "Zain Ilmi",
     description:
-      "Bimbingan belajar nyaman dan terarah untuk TK hingga SMA.",
+      "Bimbel dan les privat dengan suasana belajar nyaman dan pendampingan personal.",
     url: "https://zainilmi.web.id",
     siteName: "Zain Ilmi",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Zain Ilmi",
+      },
+    ],
     locale: "id_ID",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Zain Ilmi",
+    description:
+      "Bimbel dengan suasana belajar yang nyaman dan terarah.",
+    images: ["/og-image.png"],
   },
 };
 
