@@ -81,10 +81,13 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
+  icon: [
+    { url: "/favicon.ico" },
+    { url: "/icon.png", type: "image/png" },
+  ],
+  shortcut: "/favicon.ico",
+  apple: "/icon.png",
+},
 
   manifest: "/manifest.webmanifest",
 
