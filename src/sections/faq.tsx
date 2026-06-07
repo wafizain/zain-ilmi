@@ -24,7 +24,7 @@ function FAQAccordion({
 
   return (
     <div
-      className={`overflow-hidden rounded-2xl border bg-white transition duration-300 sm:rounded-3xl ${
+      className={`overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${
         isOpen
           ? "border-teal-200 shadow-lg shadow-teal-700/5"
           : "border-slate-200 hover:border-slate-300 hover:shadow-md"
@@ -40,7 +40,7 @@ function FAQAccordion({
           className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
         >
           <span
-            className={`text-sm font-semibold leading-snug transition sm:text-base ${
+            className={`text-sm font-semibold leading-snug transition-colors sm:text-base ${
               isOpen ? "text-teal-700" : "text-slate-900"
             }`}
           >
@@ -49,10 +49,10 @@ function FAQAccordion({
 
           <span
             aria-hidden="true"
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition duration-300 sm:h-9 sm:w-9 ${
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
               isOpen
                 ? "rotate-45 bg-teal-700 text-white"
-                : "bg-slate-100 text-slate-700"
+                : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
             <Plus className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
@@ -90,60 +90,119 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="relative bg-white py-16 sm:py-20 md:py-24 lg:py-28"
+      className="relative bg-slate-50 py-16 sm:py-20 md:py-24 lg:py-28"
     >
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
-            Pertanyaan yang Sering Ditanyakan
-          </p>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Two-Column Layout */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column - Heading & Description */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-24">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mb-2 text-xs font-semibold uppercase tracking-widest text-teal-700 sm:mb-3 sm:text-sm"
+              >
+                FAQ
+              </motion.p>
 
-          <h2
-            id="faq-heading"
-            className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
-          >
-            Mungkin Ini Beberapa Hal yang
-            <span className="text-teal-700"> Sedang Anda Pikirkan</span>
-          </h2>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                id="faq-heading"
+                className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+              >
+                Pertanyaan yang Sering Diajukan
+              </motion.h2>
 
-          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg">
-            Berikut beberapa pertanyaan yang sering ditanyakan orang tua
-            seputar program dan suasana belajar di Zain Ilmi.
-          </p>
-        </div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mt-4 text-sm leading-relaxed text-slate-600 sm:mt-5 sm:text-base md:text-lg"
+              >
+                Temukan informasi yang paling sering ditanyakan oleh orang tua
+                dan siswa mengenai program belajar di Zain Ilmi.
+              </motion.p>
 
-        {/* FAQ List */}
-        <div className="mt-12 space-y-3 sm:mt-14 sm:space-y-4 lg:mt-16">
-          {faqs.map((item, index) => (
-            <FAQAccordion
-              key={item.question}
-              index={index}
-              item={item}
-              isOpen={openIndex === index}
-              onToggle={() =>
-                setOpenIndex(openIndex === index ? null : index)
-              }
-            />
-          ))}
-        </div>
+              {/* CTA Card - Desktop Only */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mt-8 hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:block"
+              >
+                <p className="mb-4 text-base font-semibold text-slate-900">
+                  Masih memiliki pertanyaan?
+                </p>
+                {/* <p className="mb-5 text-sm leading-relaxed text-slate-600">
+                  Tim kami siap membantu Anda menemukan program belajar yang
+                  tepat untuk anak Anda.
+                </p> */}
+                <a
+                  href={siteConfig.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Hubungi Zain Ilmi via WhatsApp"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-teal-800 active:scale-[0.98]"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  Hubungi Kami via WhatsApp
+                </a>
+              </motion.div>
+            </div>
+          </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-8 text-center sm:mt-14 sm:flex-row sm:gap-5 sm:px-8 sm:py-7 sm:text-left">
-          <p className="text-sm text-slate-700 sm:text-base">
-            Masih punya pertanyaan? Kami senang membantu Anda.
-          </p>
+          {/* Right Column - FAQ Accordion */}
+          <div className="lg:col-span-7">
+            <div className="space-y-3 sm:space-y-4">
+              {faqs.map((item, index) => (
+                <motion.div
+                  key={item.question}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <FAQAccordion
+                    index={index}
+                    item={item}
+                    isOpen={openIndex === index}
+                    onToggle={() =>
+                      setOpenIndex(openIndex === index ? null : index)
+                    }
+                  />
+                </motion.div>
+              ))}
+            </div>
 
-          <a
-            href={siteConfig.social.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Hubungi Zain Ilmi via WhatsApp"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-teal-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98] sm:px-6"
-          >
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            Hubungi via WhatsApp
-          </a>
+            {/* Bottom CTA - Mobile Only */}
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:mt-10 lg:hidden">
+              <p className="mb-3 text-center text-base font-semibold text-slate-900 sm:mb-4">
+                Masih memiliki pertanyaan?
+              </p>
+              {/* <p className="mb-5 text-center text-sm leading-relaxed text-slate-600">
+                kami siap membantu Anda menemukan program belajar yang tepat
+                untuk anak Anda.
+              </p> */}
+              <a
+                href={siteConfig.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hubungi Zain Ilmi via WhatsApp"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-teal-800 active:scale-[0.98] sm:text-base"
+              >
+                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+                Hubungi Kami via WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -3,9 +3,9 @@ import Footer from "@/components/footer";
 import FloatingWhatsApp from "@/components/floating-whatsapp";
 
 import Hero from "@/sections/hero";
-import WhyUs from "@/sections/why-us";
+import About from "@/sections/about";
+import StudentJourney from "@/sections/student-journey";
 import Programs from "@/sections/programs";
-import Gallery from "@/sections/gallery";
 import Testimonials from "@/sections/testimonials";
 import Location from "@/sections/location";
 import FAQ from "@/sections/faq";
@@ -16,9 +16,9 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden bg-slate-50">
       <Navbar />
       <Hero />
-      <WhyUs />
+      <About />
+      <StudentJourney />
       <Programs />
-      <Gallery />
       <Testimonials />
       <Location />
       <FAQ />

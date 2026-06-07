@@ -14,8 +14,8 @@ export default function Location() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         {/* Left Content */}
         <div>
-          <p className="mb-4 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
-            Lokasi Belajar
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-teal-700 sm:mb-3 sm:text-sm">
+            Lokasi
           </p>
 
           <h2
@@ -52,7 +52,7 @@ export default function Location() {
               </div>
 
               <div className="min-w-0">
-                <h3 className="font-bold text-slate-900">Jam Belajar</h3>
+                <h3 className="font-bold text-slate-900">Jam Buka</h3>
 
                 <p className="mt-1 text-sm text-slate-600 sm:text-base">
                   Senin - Sabtu • 08.00 - 17.00

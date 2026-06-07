@@ -1,133 +1,123 @@
 "use client";
 
-import {
-  ArrowRight,
-  BookOpen,
-  Users,
-  GraduationCap,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
 
 import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/seo";
+import { scrollToSection } from "@/lib/scroll-to";
 
 export default function Hero() {
+  const handleExploreClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    scrollToSection("perjalanan");
+  };
+
   return (
     <section
       id="home"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-slate-50"
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white pt-16 sm:pt-20"
     >
-      {/* Background Glow - dibatasi agar tidak bikin overflow di mobile */}
+      {/* Background Glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-20 -top-20 h-60 w-60 rounded-full bg-teal-200/30 blur-3xl sm:h-72 sm:w-72"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-blue-200/30 blur-3xl sm:h-72 sm:w-72"
+        className="pointer-events-none absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full bg-gradient-to-br from-teal-100/40 via-blue-100/40 to-transparent blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-14 sm:gap-12 sm:px-6 sm:py-20 lg:min-h-[85vh] lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
-        {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="mb-5 inline-flex rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs font-medium text-teal-700 sm:px-4 sm:py-2 sm:text-sm">
-            Bimbingan Belajar Pra-SD hingga SMA di Bandung
-          </p>
-
-          <h1
-            id="hero-heading"
-            className="text-3xl font-extrabold leading-[1.15] tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+      <div className="relative mx-auto max-w-7xl px-4 pt-8 pb-12 sm:px-6 sm:pt-10 sm:pb-16 lg:grid lg:min-h-[85vh] lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8 lg:pt-12 lg:pb-20">
+        {/* Mobile-First Content */}
+        <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:text-left">
+          {/* Illustration - Mobile Top */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto mb-8 w-full max-w-xs sm:mb-10 sm:max-w-sm lg:hidden"
+            aria-hidden="true"
           >
-            Ruang Belajar Nyaman untuk
-            <span className="text-teal-700">
-              {" "}
-              Generasi Masa Depan
-            </span>
-          </h1>
+            <div className="relative aspect-square w-full">
+              <Image
+                src="/ilustrasi_hero (2).svg"
+                alt="Ilustrasi suasana belajar di Zain Ilmi"
+                fill
+                priority
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 384px, 50vw"
+                className="object-contain"
+              />
+            </div>
+          </motion.div>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:mt-6 sm:text-lg md:text-xl">
-            Zain Ilmi hadir sebagai bimbingan belajar dengan suasana nyaman,
-            pendampingan personal, dan pembelajaran yang terarah untuk membantu
-            perkembangan akademik siswa.
-          </p>
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            id="hero-heading"
+            className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl"
+          >
+            Belajar Lebih Nyaman,{" "}
+            <span className="text-teal-700"> Didampingi Hingga Paham</span>
+          </motion.h1>
 
-          <div className="mt-8 flex sm:mt-10">
+          {/* Supporting Text */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-5 sm:text-lg md:text-xl"
+          >
+            Bimbingan belajar untuk Pra-SD hingga SMA dengan pendampingan personal, jam belajar yang fleksibel, dan pengalaman mengajar lebih dari 10 tahun.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 flex flex-col gap-3 sm:mt-10 sm:gap-4 lg:flex-row"
+          >
+            {/* Primary CTA - Explore */}
+            <button
+              onClick={handleExploreClick}
+              aria-label="Jelajahi lebih lanjut tentang Zain Ilmi"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-teal-700/25 transition-all hover:bg-teal-800 hover:shadow-xl hover:shadow-teal-700/30 active:scale-[0.98] sm:text-lg lg:w-auto lg:px-8"
+            >
+              Explore
+              <ChevronDown size={20} aria-hidden="true" className="animate-bounce" />
+            </button>
+
+            {/* Secondary CTA - WhatsApp */}
             <a
               href={siteConfig.social.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Daftar bimbel Zain Ilmi via WhatsApp"
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-800 active:scale-[0.98] sm:w-auto sm:px-7 sm:py-4"
+              aria-label="Chat dengan Zain Ilmi via WhatsApp"
+              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-slate-300 bg-white px-6 py-4 text-base font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50 active:scale-[0.98] sm:text-lg lg:w-auto lg:px-8"
             >
-              Daftar Sekarang
-              <ArrowRight size={18} aria-hidden="true" />
+              <MessageCircle size={20} aria-hidden="true" />
+              Chat WhatsApp
             </a>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Right Visual */}
+        {/* Desktop Illustration - Right Side */}
         <motion.div
-          className="relative mt-2 lg:mt-0"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative hidden lg:block"
           aria-hidden="true"
         >
-          {/* Main Card */}
-          <div className="rounded-3xl border border-white/50 bg-white/80 p-5 shadow-xl backdrop-blur sm:p-6 md:rounded-[32px] md:p-8 md:shadow-2xl">
-            <div className="mb-5 flex items-center gap-3 sm:mb-6 sm:gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-700 sm:h-14 sm:w-14">
-                <GraduationCap className="h-6 w-6 sm:h-7 sm:w-7" />
-              </div>
-
-              <div className="min-w-0">
-                <p className="text-base font-bold text-slate-900 sm:text-lg">
-                  Pendampingan Personal
-                </p>
-
-                <p className="text-xs text-slate-500 sm:text-sm">
-                  Suasana belajar nyaman dan terarah
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-3 sm:space-y-4">
-              <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-3 sm:gap-4 sm:p-4">
-                <div className="shrink-0 rounded-xl bg-blue-100 p-2.5 text-blue-700 sm:p-3">
-                  <BookOpen className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
-                </div>
-
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-slate-800 sm:text-base">
-                    Materi Terstruktur
-                  </p>
-
-                  <p className="text-xs text-slate-500 sm:text-sm">
-                    Pembelajaran sesuai kebutuhan siswa
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-3 sm:gap-4 sm:p-4">
-                <div className="shrink-0 rounded-xl bg-emerald-100 p-2.5 text-emerald-700 sm:p-3">
-                  <Users className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
-                </div>
-
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-slate-800 sm:text-base">
-                    Kelas Lebih Fokus
-                  </p>
-
-                  <p className="text-xs text-slate-500 sm:text-sm">
-                    Pendekatan personal dan nyaman
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="relative aspect-square w-full">
+            <Image
+              src="/ilustrasi_hero (2).svg"
+              alt="Ilustrasi suasana belajar di Zain Ilmi"
+              fill
+              priority
+              sizes="50vw"
+              className="object-contain"
+            />
           </div>
         </motion.div>
       </div>

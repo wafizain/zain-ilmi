@@ -5,9 +5,9 @@ export type FAQItem = {
 
 export const faqs: FAQItem[] = [
   {
-    question: "Program belajar tersedia untuk jenjang apa saja?",
-    answer:
-      "Zain Ilmi membuka program bimbingan belajar untuk jenjang TK, SD, SMP, hingga SMA. Setiap jenjang punya pendekatan yang disesuaikan dengan kebutuhan dan perkembangan akademik siswa.",
+  question: "Program belajar tersedia untuk jenjang apa saja?",
+  answer:
+    "Kami menyediakan program belajar untuk Pra-SD & Calistung, SD, SMP, dan SMA."
   },
   {
     question: "Apakah tersedia program calistung?",
@@ -15,30 +15,20 @@ export const faqs: FAQItem[] = [
       "Tersedia. Program calistung (membaca, menulis, berhitung) kami sediakan khusus untuk anak TK dan awal SD agar mereka punya fondasi belajar yang kuat dan percaya diri.",
   },
   {
-    question: "Bagaimana suasana belajar di Zain Ilmi?",
-    answer:
-      "Kami mengusung suasana belajar rumahan yang hangat, tenang, dan ramah. Tujuannya agar anak merasa nyaman, fokus, dan bisa berkembang tanpa tekanan.",
-  },
-  {
-    question: "Apakah pembelajaran dilakukan dalam kelompok kecil?",
-    answer:
-      "Ya. Kami menjaga jumlah siswa per kelas tetap kecil supaya pendampingan bisa lebih personal dan setiap anak mendapatkan perhatian yang cukup dari tentor.",
-  },
-  {
     question: "Mata pelajaran apa saja yang tersedia?",
     answer:
-      "Mulai dari mata pelajaran utama seperti Matematika, Bahasa Indonesia, Bahasa Inggris, IPA, dan IPS sesuai jenjang. Untuk SMA tersedia juga pendampingan persiapan ujian.",
+      "Mulai dari mata pelajaran utama seperti Matematika, Bahasa Indonesia, Bahasa Inggris, IPA, dan IPS sesuai jenjang.",
   },
   {
-    question: "Bagaimana cara mendaftar?",
-    answer:
-      "Pendaftaran sangat mudah. Cukup hubungi kami via WhatsApp untuk konsultasi singkat, lalu kami bantu menentukan jadwal dan program yang paling cocok untuk anak Anda.",
+  question: "Bagaimana cara mendaftar?",
+  answer:
+    "Cukup hubungi kami melalui WhatsApp untuk mendapatkan informasi biaya dan jadwal belajar. Kami akan membantu menyesuaikan jadwal belajar sesuai ketersediaan siswa selama jam operasional."
   },
   {
-    question: "Apakah bisa konsultasi terlebih dahulu?",
-    answer:
-      "Tentu boleh. Kami menyediakan sesi konsultasi gratis agar orang tua bisa mengenal Zain Ilmi lebih dekat sebelum memutuskan untuk bergabung.",
-  },
+  question: "Apakah jadwal belajar bisa disesuaikan?",
+  answer:
+    "Ya. Jadwal belajar dapat disesuaikan dengan ketersediaan siswa selama jam operasional pukul 08.00–17.00 WIB. Pertemuan dilakukan secara reguler sebanyak 4 kali dalam seminggu."
+ },
   {
     question: "Dimana lokasi Zain Ilmi?",
     answer:

@@ -11,11 +11,11 @@ import { siteConfig } from "@/lib/seo";
 
 const navLinks = [
   { label: "Home", href: "home" },
+  { label: "Tentang", href: "tentang" },
+  { label: "Perjalanan", href: "perjalanan" },
   { label: "Program", href: "program" },
   { label: "Testimoni", href: "testimoni" },
-  { label: "Lokasi", href: "lokasi" },
   { label: "FAQ", href: "faq" },
-  { label: "Kontak", href: "kontak" },
 ];
 
 const sectionIds = navLinks.map((l) => l.href);
@@ -54,9 +54,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${
         isScrolled
-          ? "border-slate-200/70 bg-white/80 shadow-sm backdrop-blur-xl"
+          ? "border-slate-200 bg-white shadow-md backdrop-blur-xl"
           : "border-white/20 bg-white/70 backdrop-blur-xl"
       }`}
     >
