@@ -1,28 +1,47 @@
+/**
+ * FAQ data untuk halaman /program/calistung-bandung.
+ * Edit array ini untuk menambah, mengubah, atau menghapus pertanyaan.
+ * Data yang sama digunakan untuk tampilan accordion DAN FAQPage JSON-LD schema.
+ */
 export const calistungFaqs = [
   {
-    question: "Apa itu calistung dan kapan anak sebaiknya mulai?",
+    question: "Anak saya belum bisa membaca sama sekali, apakah bisa ikut?",
     answer:
-      "Calistung adalah singkatan dari membaca, menulis, dan berhitung. Anak umumnya siap mengenal calistung pada usia 4–6 tahun atau menjelang masuk SD. Di Zain Ilmi, kami menyesuaikan tempo belajar dengan kesiapan setiap anak agar tidak tertekan.",
+      "Tentu. Program calistung di Zain Ilmi dirancang untuk menyesuaikan kemampuan awal setiap anak. Kami akan membantu anak belajar secara bertahap sesuai kebutuhan dan perkembangannya.",
   },
   {
-    question:
-      "Apakah les calistung di Zain Ilmi cocok untuk anak yang belum bisa membaca sama sekali?",
+    question: "Program ini cocok untuk usia berapa?",
     answer:
-      "Sangat cocok. Program calistung kami dirancang mulai dari pengenalan huruf dan angka paling dasar, sehingga anak yang belum bisa membaca sekalipun dapat mengikuti dengan nyaman dan bertahap.",
+      "Program umumnya ditujukan untuk anak usia Pra-SD atau anak yang sedang mempersiapkan diri memasuki jenjang sekolah dasar.",
   },
   {
-    question: "Di mana lokasi les calistung Zain Ilmi di Bandung?",
+    question: "Apakah setiap anak mendapatkan pendampingan yang sama?",
     answer:
-      "Zain Ilmi berlokasi di Jl. Maleber Utara, Kecamatan Andir, Kota Bandung. Lokasi kami mudah dijangkau dari Maleber, Garuda, Dunguscariang, Ciroyom, dan area Bandung sekitarnya.",
+      "Pendampingan disesuaikan dengan kemampuan dan kebutuhan masing-masing anak agar proses belajar lebih efektif dan nyaman.",
   },
   {
-    question: "Berapa biaya les calistung di Zain Ilmi?",
+    question: "Berapa kali pertemuan dalam seminggu?",
     answer:
-      "Biaya program calistung terjangkau dan dapat disesuaikan dengan jumlah pertemuan per minggu. Silakan hubungi kami via WhatsApp untuk informasi biaya terbaru dan paket yang tersedia.",
+      "Jadwal belajar dapat disesuaikan dengan kebutuhan siswa dan kesepakatan bersama orang tua, Untuk pertemuan reguler 4x Pertemuan per Minggu",
   },
   {
-    question: "Apakah jadwal belajar calistung bisa fleksibel?",
+    question: "Apakah orang tua bisa berkonsultasi mengenai perkembangan anak?",
     answer:
-      "Bisa. Kami menyediakan jam belajar yang fleksibel menyesuaikan ketersediaan anak dan orang tua, dengan rata-rata 4 pertemuan per minggu pada hari Senin hingga Jumat.",
+      "Ya. Kami terbuka untuk berdiskusi dan memberikan informasi mengenai perkembangan belajar anak selama mengikuti program.",
+  },
+  {
+    question: "Apakah tersedia jadwal yang fleksibel?",
+    answer:
+      "Ya. Jadwal belajar dapat disesuaikan dengan aktivitas sekolah maupun kegiatan keluarga.",
+  },
+  {
+    question: "Apakah program hanya untuk anak yang mengalami kesulitan belajar?",
+    answer:
+      "Tidak. Program juga cocok untuk anak yang ingin memperkuat kemampuan membaca, menulis, dan berhitung sebelum masuk SD.",
+  },
+  {
+    question: "Bagaimana cara mendaftarkan anak ke Zain Ilmi?",
+    answer:
+      "Orang tua dapat langsung menghubungi WhatsApp Zain Ilmi untuk konsultasi dan informasi lebih lanjut mengenai program calistung yang tersedia.",
   },
 ];

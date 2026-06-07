@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Sparkles, BookOpen, Target, GraduationCap } from "lucide-react";
 import { siteConfig } from "@/lib/seo";
@@ -11,6 +12,7 @@ type Program = {
   price: string;
   accentColor: string;
   bgColor: string;
+  detailLink?: string;
 };
 
 const programs: Program[] = [
@@ -22,6 +24,7 @@ const programs: Program[] = [
     price: "Rp 100.000 / bulan",
     accentColor: "text-pink-600",
     bgColor: "bg-pink-50",
+    detailLink: "/program/calistung-bandung",
   },
   {
     icon: BookOpen,
@@ -131,31 +134,58 @@ export default function Programs() {
                     </span>
                   </div>
 
-                  {/* CTA Link */}
-                  <a
-                    href={`${siteConfig.social.whatsapp}?text=Halo%20saya%20ingin%20bertanya%20tentang%20${encodeURIComponent(program.title)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-5 inline-flex items-center gap-1 text-sm font-semibold ${program.accentColor} transition-all hover:gap-2`}
-                  >
-                    Hubungi Kami
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      className="h-4 w-4"
-                      aria-hidden="true"
+                  {/* CTA Links */}
+                  <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                    {program.detailLink && (
+                      <Link
+                        href={program.detailLink}
+                        className={`inline-flex items-center gap-1 text-sm font-semibold ${program.accentColor} transition-all hover:gap-2`}
+                      >
+                        Lihat Detail
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M3 8h10m0 0l-3-3m3 3l-3 3"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </Link>
+                    )}
+
+                    <a
+                      href={`${siteConfig.social.whatsapp}?text=Halo%20saya%20ingin%20bertanya%20tentang%20${encodeURIComponent(program.title)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-semibold text-slate-500 transition-all hover:gap-2 hover:text-slate-700"
                     >
-                      <path
-                        d="M3 8h10m0 0l-3-3m3 3l-3 3"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
+                      Hubungi Kami
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        className="h-4 w-4"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 8h10m0 0l-3-3m3 3l-3 3"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </motion.div>
             );
