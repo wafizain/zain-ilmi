@@ -163,6 +163,16 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-10 border-t border-slate-200 pt-8 text-center text-xs text-slate-500 sm:mt-12 sm:text-sm">
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          <span className="mx-2">·</span>
+          Illustrations by{" "}
+          <a
+            href="https://storyset.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline transition hover:text-teal-700"
+          >
+            Storyset
+          </a>
         </div>
       </div>
     </footer>

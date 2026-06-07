@@ -18,7 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Halaman landing terpisah yang dapat diindeks
-  const pages = ["/program/calistung-bandung"];
+  const pages = [
+    "/program/calistung-bandung",
+    "/program/les-privat-sd-bandung",
+  ];
 
   const sectionEntries = sections.map((path) => ({
     url: `${siteConfig.url}/${path}`,

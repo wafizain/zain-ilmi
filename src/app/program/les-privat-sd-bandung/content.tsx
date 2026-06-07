@@ -5,35 +5,36 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   BookOpen,
-  Heart,
-  Users,
+  GraduationCap,
+  Target,
   Clock,
+  Heart,
+  MapPin,
   MessageCircle,
   Check,
   ChevronRight,
-  Sparkles,
-  MapPin,
   Star,
   Quote,
   Plus,
+  PenLine,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/lib/seo";
-import { calistungFaqs } from "./faqs";
+import { sdFaqs } from "./faqs";
 
 /* ------------------------------------------------------------------ */
 /*  Accordion Sub-component                                             */
 /* ------------------------------------------------------------------ */
 
-function CalistungFaqAccordion() {
+function SdFaqAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="space-y-3">
-      {calistungFaqs.map((faq, index) => {
+      {sdFaqs.map((faq, index) => {
         const isOpen = openIndex === index;
-        const buttonId = `faq-btn-${index}`;
-        const panelId = `faq-panel-${index}`;
+        const buttonId = `sd-faq-btn-${index}`;
+        const panelId = `sd-faq-panel-${index}`;
 
         return (
           <div
@@ -55,7 +56,7 @@ function CalistungFaqAccordion() {
               >
                 <span
                   className={`text-sm font-semibold leading-snug sm:text-base ${
-                    isOpen ? "text-teal-700" : "text-slate-900"
+                    isOpen ? "text-teal-700"  : "text-slate-900"
                   }`}
                 >
                   {faq.question}
@@ -104,129 +105,107 @@ function CalistungFaqAccordion() {
 /* ------------------------------------------------------------------ */
 
 const trustIndicators = [
-  "Pendampingan personal",
-  "Metode Belajar Menyenangkan",
-  "Jadwal fleksibel",
-  "Area Andir dan sekitarnya"
+  "Membantu PR Sekolah",
+  "Semua Mata Pelajaran SD",
+  "Persiapan Ulangan & Ujian",
+  "Jadwal Fleksibel Setelah Sekolah",
 ];
 
-const socialProofAreas = [
-  "Andir",
-  "Maleber",
-  "Garuda",
-  "Dunguscariang",
-  "Ciroyom",
-];
+const socialProofAreas = ["Andir", "Maleber", "Garuda", "Dunguscariang", "Ciroyom"];
 
 const whyFeatures = [
-  // ---- FEATURED (top row) ----
   {
-    icon: Users,
-    title: "Pendampingan Personal",
+    icon: GraduationCap,
+    title: "Pendampingan Belajar Personal",
     description:
-      "Setiap anak memiliki kemampuan belajar yang berbeda. Tutor memberikan arahan dan perhatian sesuai kebutuhan masing-masing siswa.",
+      "Setiap siswa mendapat perhatian langsung dari pengajar sesuai kemampuan dan kebutuhan belajarnya.",
     featured: true,
-    badge: "Unggulan",
     color: "text-teal-700",
     bg: "bg-teal-50",
     accentBg: "bg-teal-700",
     accentText: "text-white",
     border: "border-teal-200",
-    shadow: "shadow-teal-100/60",
   },
   {
-    icon: Sparkles,
-    title: "Belajar dengan Cara Menyenangkan",
+    icon: PenLine,
+    title: "Membantu Pekerjaan Rumah (PR)",
     description:
-      "Aktivitas belajar dirancang agar anak lebih antusias, aktif, dan tidak mudah bosan selama proses calistung.",
+      "Kami membantu siswa memahami dan menyelesaikan PR dengan cara yang terarah dan tidak membebani.",
     featured: true,
-    badge: "Unggulan",
-    color: "text-pink-600",
-    bg: "bg-pink-50",
-    accentBg: "bg-pink-600",
+    color: "text-teal-700",
+    bg: "bg-teal-50",
+    accentBg: "bg-teal-700",
     accentText: "text-white",
-    border: "border-pink-200",
-    shadow: "shadow-pink-100/60",
+    border: "border-teal-200",
   },
   {
     icon: BookOpen,
-    title: "Fokus pada Kemajuan Anak",
+    title: "Fokus pada Pemahaman Materi",
     description:
-      "Program dilakukan secara bertahap untuk membantu anak berkembang sesuai kemampuan dan lebih percaya diri saat masuk SD.",
+      "Materi diajarkan secara bertahap agar siswa benar-benar paham, bukan sekadar menghafal.",
     featured: true,
-    badge: "Unggulan",
-    color: "text-blue-700",
-    bg: "bg-blue-50",
-    accentBg: "bg-blue-700",
+    color: "text-teal-700",
+    bg: "bg-teal-50",
+    accentBg: "bg-teal-700",
     accentText: "text-white",
-    border: "border-blue-200",
-    shadow: "shadow-blue-100/60",
+    border: "border-teal-200",
   },
-  // ---- STANDARD (bottom row) ----
   {
     icon: Clock,
     title: "Jadwal Fleksibel",
     description:
-      "Pilihan waktu belajar yang dapat disesuaikan dengan aktivitas sekolah dan keluarga.",
+      "Waktu belajar dapat disesuaikan dengan jadwal sekolah dan kegiatan keluarga.",
     featured: false,
-    badge: null,
     color: "text-amber-700",
     bg: "bg-amber-50",
     accentBg: "bg-amber-700",
     accentText: "text-white",
     border: "border-amber-100",
-    shadow: "shadow-amber-50/60",
-  },
-  {
-    icon: MapPin,
-    title: "Area Layanan Andir & Sekitarnya",
-    description:
-      "Melayani keluarga di Andir, Maleber, Garuda, Dunguscariang, Ciroyom, dan wilayah sekitar Bandung Barat.",
-    featured: false,
-    badge: null,
-    color: "text-emerald-700",
-    bg: "bg-emerald-50",
-    accentBg: "bg-emerald-700",
-    accentText: "text-white",
-    border: "border-emerald-100",
-    shadow: "shadow-emerald-50/60",
   },
   {
     icon: Heart,
     title: "Lingkungan Belajar Nyaman",
     description:
-      "Suasana belajar yang kondusif membantu anak lebih fokus dan nyaman selama mengikuti program.",
+      "Suasana belajar yang kondusif membantu siswa lebih fokus dan tidak mudah tertekan.",
     featured: false,
-    badge: null,
     color: "text-rose-600",
     bg: "bg-rose-50",
     accentBg: "bg-rose-600",
     accentText: "text-white",
     border: "border-rose-100",
-    shadow: "shadow-rose-50/60",
+  },
+  {
+    icon: MapPin,
+    title: "Area Layanan Bandung",
+    description:
+      "Melayani keluarga di Andir, Maleber, Garuda, Dunguscariang, Ciroyom, dan sekitar Bandung.",
+    featured: false,
+    color: "text-emerald-700",
+    bg: "bg-emerald-50",
+    accentBg: "bg-emerald-700",
+    accentText: "text-white",
+    border: "border-emerald-100",
   },
 ];
 
-// ─── TESTIMONIALS ─────────────────────────────────────────────────────────
-// Easy to update: replace name, role, and text with real parent testimonials.
-const calistungTestimonials = [
+const sdTestimonials = [
   {
-    name: "Ibu Rina",
-    role: "Orang Tua Siswa Pra-SD",
+    name: "Ibu Hana",
+    role: "Orang Tua Siswa SD Kelas 4",
+    initial: "H",
+    text: "Nilai Matematika anak saya meningkat signifikan setelah belajar di Zain Ilmi.",
+  },
+  {
+    name: "Bapak Rudi",
+    role: "Orang Tua Siswa SD Kelas 3",
     initial: "R",
-    text: "Awalnya anak saya masih kesulitan mengenal huruf. Setelah mengikuti program calistung di Zain Ilmi, kemampuan membacanya berkembang dengan baik dan sekarang lebih percaya diri saat belajar.",
+    text: "Anak jadi lebih semangat mengerjakan PR. Sebelumnya sering mengeluh susah, sekarang lebih mandiri dan percaya diri.",
   },
   {
-    name: "Ibu Sari",
-    role: "Orang Tua Siswa Pra-SD",
-    initial: "S",
-    text: "Tutor sangat sabar dan cara mengajarnya menyenangkan. Anak jadi lebih semangat belajar dan tidak merasa terbebani saat latihan membaca maupun berhitung.",
-  },
-  {
-    name: "Ibu Dewi",
-    role: "Orang Tua Siswa Pra-SD",
-    initial: "D",
-    text: "Kami memilih Zain Ilmi karena pendekatan belajarnya yang personal. Perkembangan anak terasa lebih terarah dan komunikasinya dengan orang tua juga sangat baik.",
+    name: "Ibu Nita",
+    role: "Orang Tua Siswa SD Kelas 5",
+    initial: "N",
+    text: "Sangat terbantu terutama untuk persiapan ulangan. Jadwalnya fleksibel dan komunikasi dengan pengajar sangat terbuka.",
   },
 ];
 
@@ -234,8 +213,8 @@ const calistungTestimonials = [
 /*  Component                                                           */
 /* ------------------------------------------------------------------ */
 
-export default function CalistungContent() {
-  const waLink = `${siteConfig.social.whatsapp}?text=Halo%20saya%20ingin%20bertanya%20tentang%20program%20Calistung%20Zain%20Ilmi`;
+export default function SDContent() {
+  const waLink = `${siteConfig.social.whatsapp}?text=Halo%20saya%20ingin%20bertanya%20tentang%20program%20Les%20Privat%20SD%20Zain%20Ilmi`;
 
   return (
     <>
@@ -260,32 +239,28 @@ export default function CalistungContent() {
           </li>
           <ChevronRight size={14} aria-hidden="true" className="shrink-0" />
           <li className="font-medium text-teal-700" aria-current="page">
-            Calistung Bandung
+            Les Privat SD Bandung
           </li>
         </ol>
       </nav>
 
       {/* ============================================================ */}
-      {/* HERO — Two-Column                                              */}
+      {/* HERO                                                           */}
       {/* ============================================================ */}
       <section
-        id="calistung-hero"
-        aria-labelledby="calistung-hero-heading"
-        className="relative overflow-hidden bg-linear-to-b from-slate-50 to-white"
+        id="sd-hero"
+        aria-labelledby="sd-hero-heading"
+        className="relative overflow-hidden bg-slate-50"
       >
-        {/* Subtle background decoration */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-pink-100/40 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-teal-100/40 blur-3xl"
-        />
+        {/* Background decoration */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-32 -top-32 h-125 w-125 rounded-full bg-teal-100/30 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-teal-50/20 blur-3xl" />
+        </div>
 
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:min-h-[calc(100vh-80px)] lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-20">
 
-          {/* ---------- LEFT COLUMN ---------- */}
+          {/* ── LEFT COLUMN ── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -293,36 +268,42 @@ export default function CalistungContent() {
             className="flex flex-col"
           >
             {/* Badge */}
-            <div className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 sm:px-4 sm:py-2">
-              <Star
-                size={14}
-                className="shrink-0 fill-pink-400 text-pink-400"
-                aria-hidden="true"
-              />
-              <span className="text-xs font-semibold text-pink-700 sm:text-sm">
-                Program Calistung Pra-SD di Andir, Bandung
+            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 sm:px-4 sm:py-2">
+              <Star size={14} className="shrink-0 fill-teal-600 text-teal-600" aria-hidden="true" />
+              <span className="text-xs font-semibold text-teal-700 sm:text-sm">
+                Pendampingan Belajar SD di Andir, Bandung
               </span>
             </div>
 
-            {/* H1 — SEO keyword-rich */}
+            {/* H1 */}
             <h1
-              id="calistung-hero-heading"
+              id="sd-hero-heading"
               className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem] xl:text-5xl"
             >
-              Les Calistung Bandung
+              Les Privat SD Bandung
               <span className="block text-teal-700">
-                untuk Anak Pra-SD
+                Membantu Anak Memahami
+              </span>
+              <span className="block text-slate-900">
+                Pelajaran Sekolah dengan Lebih Mudah
               </span>
             </h1>
 
-            {/* Sub-headline */}
-            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-5 sm:text-lg">
-              Bantu anak lebih siap masuk SD melalui program membaca, menulis,
-              dan berhitung yang menyenangkan dengan pendampingan personal dari
-              tutor Zain Ilmi di Kecamatan Andir, Bandung.
+            {/* SEO sr-only */}
+            <p className="sr-only">
+              Pendampingan belajar yang membantu siswa SD memahami materi sekolah,
+              mengerjakan tugas dengan lebih percaya diri, dan meningkatkan hasil belajar
+              secara bertahap.
             </p>
 
-            {/* Trust Indicators — card checklist */}
+            {/* Sub-headline */}
+            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-5 sm:text-lg">
+              Pendampingan belajar yang membantu siswa SD memahami materi
+              sekolah, mengerjakan tugas dengan lebih percaya diri, dan
+              meningkatkan hasil belajar secara bertahap.
+            </p>
+
+            {/* Trust indicators — card checklist */}
             <div className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-7 sm:grid-cols-2">
               {trustIndicators.map((item) => (
                 <div
@@ -332,59 +313,51 @@ export default function CalistungContent() {
                   <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100">
                     <Check size={12} className="text-teal-700" aria-hidden="true" />
                   </div>
-                  <span className="text-sm font-medium text-slate-700">
-                    {item}
-                  </span>
+                  <span className="text-sm font-medium text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTAs */}
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <a
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Daftar program calistung Zain Ilmi via WhatsApp"
+                aria-label="Konsultasi gratis les privat SD Bandung via WhatsApp"
                 className="flex w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-teal-700/25 transition-all hover:bg-teal-800 hover:shadow-xl hover:shadow-teal-700/30 active:scale-[0.98] sm:w-auto sm:px-8"
               >
                 <MessageCircle size={20} aria-hidden="true" />
                 Daftar Sekarang
               </a>
-
               <Link
-                href="#calistung-benefits"
-                className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-slate-300 bg-white px-6 py-4 text-base font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50 active:scale-[0.98] sm:w-auto sm:px-8"
+                href="#sd-biaya"
+                className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-teal-700 bg-white px-6 py-4 text-base font-semibold text-teal-700 transition-all hover:bg-teal-50 active:scale-[0.98] sm:w-auto sm:px-8"
               >
                 Lihat Biaya
                 <ChevronRight size={18} aria-hidden="true" />
               </Link>
             </div>
 
-            {/* Social Proof */}
-            <div className="mt-6 flex flex-wrap items-center gap-2">
-              <div className="flex -space-x-2">
-                {[...Array(4)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-teal-400 to-teal-600 text-xs font-bold text-white shadow-sm"
-                    aria-hidden="true"
-                  >
-                    {["A", "B", "C", "D"][i]}
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-slate-600">
-                <span className="font-semibold text-slate-800">
-                  Dipercaya orang tua
-                </span>{" "}
-                di{" "}
-                {socialProofAreas.join(", ")}
-              </p>
+            {/* Trust note */}
+            <p className="mt-4 flex items-start gap-1.5 text-xs text-slate-500 sm:text-sm">
+              <MapPin size={14} className="mt-0.5 shrink-0 text-teal-600" aria-hidden="true" />
+              Melayani siswa SD di Andir, Maleber, Garuda, Dunguscariang,
+              Ciroyom, dan sekitarnya.
+            </p>
+
+            {/* Micro-trust */}
+            <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5">
+              {["Jadwal Fleksibel", "Pendampingan Personal", "Area Andir & Sekitarnya"].map((t) => (
+                <span key={t} className="flex items-center gap-1 text-xs text-slate-500">
+                  <Check size={11} className="shrink-0 text-teal-600" aria-hidden="true" />
+                  {t}
+                </span>
+              ))}
             </div>
           </motion.div>
 
-          {/* ---------- RIGHT COLUMN — Illustration (desktop only) ---------- */}
+          {/* ── RIGHT COLUMN — Academic visual ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -392,80 +365,87 @@ export default function CalistungContent() {
             className="relative hidden lg:block"
             aria-hidden="true"
           >
-            {/* Decorative ring behind illustration */}
-            <div className="absolute inset-4 rounded-3xl bg-gradient-to-br from-pink-100/60 via-teal-100/40 to-blue-100/60 blur-2xl" />
+            {/* Glow ring */}
+            <div className="absolute inset-6 rounded-3xl bg-gradient-to-br from-teal-200/40 via-teal-100/30 to-slate-100/50 blur-2xl" />
 
-            <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
+            {/* Illustration */}
+            <div className="relative aspect-square w-full">
               <Image
-                src="/ilustrasi_hero.svg"
-                alt="Ilustrasi anak belajar calistung di Zain Ilmi, Andir Bandung"
+                src="/hero_sd.svg"
+                alt="Ilustrasi siswa SD belajar bersama pengajar di Zain Ilmi Bandung"
                 fill
                 priority
-                sizes="(max-width: 1024px) 85vw, 50vw"
+                sizes="50vw"
                 className="object-contain drop-shadow-xl"
               />
             </div>
 
-            {/* Floating stat card — top left
-            <div className="absolute left-0 top-8 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-lg sm:-left-4 lg:left-0">
-              <p className="text-xs text-slate-500">Pengalaman mengajar</p>
-              <p className="text-2xl font-extrabold text-teal-700">17+</p>
-              <p className="text-xs font-medium text-slate-600">tahun</p>
-            </div> */}
+            {/* Floating card 1 — top left */}
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="absolute -left-4 top-10 flex items-center gap-2.5 rounded-2xl border border-teal-100 bg-white px-4 py-3 shadow-lg"
+            >
+              <span className="text-xl" aria-hidden="true">📚</span>
+              <div>
+                <p className="text-xs font-bold text-slate-900">Pendampingan</p>
+                <p className="text-xs text-slate-500">Semua Mata Pelajaran SD</p>
+              </div>
+            </motion.div>
 
-            {/* Floating stat card — bottom right */}
-            {/* <div className="absolute bottom-8 right-0 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-lg sm:-right-4 lg:right-0">
-              <p className="text-xs text-slate-500">Siswa dibimbing</p>
-              <p className="text-2xl font-extrabold text-pink-600">100+</p>
-              <p className="text-xs font-medium text-slate-600">anak aktif</p>
-            </div> */}
+            {/* Floating card 2 — bottom right */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 }}
+              className="absolute -right-4 bottom-10 flex items-center gap-2.5 rounded-2xl border border-teal-100 bg-white px-4 py-3 shadow-lg"
+            >
+              <span className="text-xl" aria-hidden="true">📝</span>
+              <div>
+                <p className="text-xs font-bold text-slate-900">Membantu PR</p>
+                <p className="text-xs text-slate-500">&amp; Persiapan Ujian</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* WHY CHOOSE — Refined, production-quality                       */}
+      {/* MENGAPA MEMILIH ZAIN ILMI                                      */}
       {/* ============================================================ */}
       <section
-        aria-labelledby="calistung-why-choose-heading"
+        aria-labelledby="sd-why-heading"
         className="bg-slate-50 py-14 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-          {/* ── Header ── */}
           <div className="max-w-2xl">
             <div className="mb-3 inline-flex items-center gap-1.5">
-              <Star size={13} className="shrink-0 fill-teal-600 text-teal-600" aria-hidden="true" />
+              <Star size={13} className="shrink-0 fill-teal-600 text-teal-700" aria-hidden="true" />
               <span className="text-xs font-semibold uppercase tracking-widest text-teal-700 sm:text-sm">
                 Mengapa Memilih Zain Ilmi
               </span>
             </div>
-
             <h2
-              id="calistung-why-choose-heading"
+              id="sd-why-heading"
               className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
             >
-              Kenapa Orang Tua Memilih Program
-              <span className="text-teal-700"> Calistung Zain Ilmi?</span>
+              Kenapa Orang Tua Memilih{" "}
+              <span className="text-teal-700">Les Privat SD Zain Ilmi?</span>
             </h2>
-
             <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Program calistung yang membantu anak belajar membaca, menulis, dan
-              berhitung secara bertahap agar lebih siap dan percaya diri saat
-              memasuki jenjang sekolah dasar.
+              Program bimbel SD di Andir, Bandung ini dirancang untuk membantu
+              siswa lebih memahami pelajaran sekolah, lebih percaya diri saat
+              ujian, dan lebih mandiri dalam belajar.
             </p>
           </div>
 
-          {/* ── Trust metrics row ── */}
+          {/* Trust metrics row */}
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5 sm:mt-7">
-            {[
-              "Pendampingan Personal",
-              "Jadwal Fleksibel",
-              "Area Andir & Sekitarnya",
-              "17+ Tahun Pengalaman Mengajar",
-            ].map((item) => (
+            {["Pendampingan Personal", "Jadwal Fleksibel", "Area Andir & Sekitarnya", "17+ Tahun Pengalaman"].map((item) => (
               <div key={item} className="flex items-center gap-2">
-                <div className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-teal-100">
+                <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-teal-100">
                   <Check size={11} className="text-teal-700" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-medium text-slate-600">{item}</span>
@@ -473,7 +453,7 @@ export default function CalistungContent() {
             ))}
           </div>
 
-          {/* ── Featured cards row — single consistent accent ── */}
+          {/* Featured cards */}
           <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {whyFeatures.filter((f) => f.featured).map((feature, index) => {
               const Icon = feature.icon;
@@ -484,24 +464,27 @@ export default function CalistungContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group flex h-full flex-col rounded-2xl border border-teal-100 bg-teal-50/40 p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md sm:p-7"
+                  className={`group flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl ${feature.border}`}
                 >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-teal-100 transition-transform duration-200 group-hover:scale-105">
-                    <Icon size={22} className="text-teal-700" aria-hidden="true" />
+                  <div className={`h-1 w-full ${feature.accentBg}`} aria-hidden="true" />
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-200 group-hover:scale-110 ${feature.bg}`}>
+                      <Icon size={24} className={feature.color} aria-hidden="true" />
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900 sm:text-lg">
+                      {feature.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 sm:text-lg">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-600">
-                    {feature.description}
-                  </p>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* ── Supporting cards row ── */}
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          {/* Supporting cards */}
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {whyFeatures.filter((f) => !f.featured).map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -513,8 +496,8 @@ export default function CalistungContent() {
                   transition={{ duration: 0.35, delay: index * 0.08 }}
                   className="group flex h-full items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-200 transition-transform duration-200 group-hover:scale-105">
-                    <Icon size={20} className="text-slate-600" aria-hidden="true" />
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-105 ${feature.bg}`}>
+                    <Icon size={20} className={feature.color} aria-hidden="true" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-slate-900 sm:text-base">
@@ -529,25 +512,23 @@ export default function CalistungContent() {
             })}
           </div>
 
-          {/* ── Soft closing statement ── */}
+          {/* Soft closing */}
           <p className="mt-10 text-center text-sm text-slate-500 sm:mt-12 sm:text-base">
-            Hadir untuk membantu anak belajar dengan lebih percaya diri melalui
-            program calistung yang terarah dan menyenangkan.
+            Hadir untuk membantu siswa SD belajar dengan lebih percaya diri
+            melalui pendampingan yang terarah dan menyenangkan.
           </p>
-
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* TESTIMONIALS                                                   */}
+      {/* TESTIMONI                                                      */}
       {/* ============================================================ */}
       <section
-        aria-labelledby="calistung-testimoni-heading"
+        aria-labelledby="sd-testimoni-heading"
         className="bg-white py-14 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-          {/* Header */}
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-3 inline-flex items-center gap-1.5">
               <Star size={13} className="shrink-0 fill-amber-400 text-amber-400" aria-hidden="true" />
@@ -555,26 +536,23 @@ export default function CalistungContent() {
                 Testimoni Orang Tua
               </span>
             </div>
-
             <h2
-              id="calistung-testimoni-heading"
+              id="sd-testimoni-heading"
               className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
             >
-              Apa Kata Orang Tua Tentang Zain Ilmi?
+              Apa Kata Orang Tua Siswa SD?
             </h2>
-
             <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Kepercayaan orang tua adalah hal yang paling berharga bagi kami.
-              Berikut pengalaman beberapa orang tua yang mendampingi anaknya
-              belajar calistung bersama Zain Ilmi di Andir, Bandung.
+              Kepercayaan orang tua adalah prioritas kami. Berikut pengalaman
+              beberapa orang tua yang mendampingi anaknya belajar bersama
+              Zain Ilmi di Andir, Bandung.
             </p>
           </div>
 
-          {/* Testimonial Cards — horizontal scroll on mobile, 3-col on desktop */}
+          {/* Horizontal scroll on mobile, 3-col on desktop */}
           <div className="mt-10 sm:mt-12">
-            {/* Scroll container */}
-            <div className="flex gap-4 overflow-x-auto pb-4 sm:gap-5 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              {calistungTestimonials.map((t, index) => (
+            <div className="flex gap-4 overflow-x-auto pb-4 sm:gap-5 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {sdTestimonials.map((t, index) => (
                 <motion.div
                   key={t.name}
                   initial={{ opacity: 0, y: 20 }}
@@ -583,32 +561,18 @@ export default function CalistungContent() {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="group relative flex w-[80vw] shrink-0 flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md sm:w-[60vw] sm:p-7 lg:w-auto"
                 >
-                  {/* Decorative quote */}
                   <div className="absolute right-5 top-5 opacity-[0.07]">
                     <Quote size={48} className="text-teal-700" aria-hidden="true" />
                   </div>
-
-                  {/* Stars */}
                   <div className="mb-4 flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={15}
-                        className="fill-amber-400 text-amber-400"
-                        aria-hidden="true"
-                      />
+                      <Star key={i} size={15} className="fill-amber-400 text-amber-400" aria-hidden="true" />
                     ))}
                   </div>
-
-                  {/* Testimonial text */}
                   <p className="flex-1 text-sm leading-relaxed text-slate-700 sm:text-base">
                     &ldquo;{t.text}&rdquo;
                   </p>
-
-                  {/* Divider */}
-                  <div className="my-5 h-px w-10 bg-teal-200" />
-
-                  {/* Author */}
+                  <div className="my-5 h-px w-10 bg-blue-200" />
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700">
                       {t.initial}
@@ -621,18 +585,12 @@ export default function CalistungContent() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Scroll hint dots — mobile only */}
             <div className="mt-4 flex justify-center gap-1.5 lg:hidden" aria-hidden="true">
-              {calistungTestimonials.map((_, i) => (
-                <div
-                  key={i}
-                  className="h-1.5 w-1.5 rounded-full bg-slate-300"
-                />
+              {sdTestimonials.map((_, i) => (
+                <div key={i} className="h-1.5 w-1.5 rounded-full bg-slate-300" />
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -640,12 +598,12 @@ export default function CalistungContent() {
       {/* BIAYA & JADWAL                                                 */}
       {/* ============================================================ */}
       <section
-        aria-labelledby="calistung-biaya-heading"
-        className="bg-white py-14 sm:py-16 lg:py-20"
+        id="sd-biaya"
+        aria-labelledby="sd-biaya-heading"
+        className="bg-slate-50 py-14 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
-          {/* Header */}
           <div className="max-w-2xl">
             <div className="mb-3 inline-flex items-center gap-1.5">
               <span aria-hidden="true" className="text-base">💰</span>
@@ -653,25 +611,22 @@ export default function CalistungContent() {
                 Biaya & Jadwal
               </span>
             </div>
-
             <h2
-              id="calistung-biaya-heading"
+              id="sd-biaya-heading"
               className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
             >
-              Program Calistung yang Fleksibel untuk
-              <span className="text-teal-700"> Kebutuhan Setiap Anak</span>
+              Program Belajar yang Fleksibel untuk{" "}
+              <span className="text-teal-700">Siswa SD</span>
             </h2>
-
             <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Setiap anak memiliki kebutuhan belajar yang berbeda. Jadwal dan
-              program dapat disesuaikan agar proses belajar lebih nyaman dan efektif.
+              Program disesuaikan dengan kebutuhan dan kemampuan setiap siswa
+              agar proses belajar lebih efektif dan nyaman.
             </p>
           </div>
 
-          {/* Two-column cards */}
           <div className="mt-8 flex gap-5 overflow-x-auto pb-4 sm:mt-10 sm:gap-6 lg:grid lg:grid-cols-2 lg:overflow-visible lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
-            {/* LEFT — Program card */}
+            {/* Program card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -679,67 +634,59 @@ export default function CalistungContent() {
               transition={{ duration: 0.45 }}
               className="flex w-[85vw] shrink-0 flex-col rounded-2xl border border-teal-100 bg-teal-50/40 p-6 sm:w-[70vw] sm:p-8 lg:w-auto"
             >
-              {/* Card header */}
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-teal-100">
-                  <BookOpen size={22} className="text-teal-700" aria-hidden="true" />
+                  <GraduationCap size={22} className="text-teal-700" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-teal-600">
-                    Program
-                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Program</p>
                   <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
-                    Program Calistung Pra-SD
+                    Les Privat SD 
                   </h3>
                 </div>
               </div>
 
-              {/* Inclusions */}
               <ul className="space-y-2.5">
                 {[
-                  "Pendampingan Personal",
-                  "Materi Sesuai Kemampuan Anak",
-                  "Jadwal Fleksibel",
-                  "Fokus Membaca, Menulis, dan Berhitung",
+                  "Matematika, B. Indonesia, B. Inggris, IPA, IPS",
+                  "Pendampingan PR harian",
+                  "Persiapan ulangan dan ujian",
+                  "Materi disesuaikan kurikulum sekolah",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2.5">
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100">
                       <Check size={11} className="text-teal-700" aria-hidden="true" />
                     </div>
-                    <span className="text-sm font-medium text-slate-700 sm:text-base">
-                      {item}
-                    </span>
+                    <span className="text-sm font-medium text-slate-700 sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Pricing display */}
-              <div className="mt-6 rounded-xl border border-teal-100 bg-white px-5 py-4 sm:px-5">
+              <div className="mt-6 rounded-xl border border-teal-100 bg-white px-5 py-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Biaya Program
                 </p>
                 <div className="mt-1 flex items-baseline gap-1.5">
                   <span className="text-3xl font-extrabold text-teal-700 sm:text-4xl">
-                    Rp 100.000
+                    Rp 120.000
                   </span>
                   <span className="text-sm font-medium text-slate-500">/ bulan</span>
                 </div>
               </div>
 
-              {/* CTA */}
               <a
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Daftar program calistung Bandung via WhatsApp"
+                aria-label="Tanya biaya les privat SD Bandung via WhatsApp"
                 className="mt-5 flex items-center justify-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-700/20 transition-all hover:bg-teal-800 hover:shadow-lg active:scale-[0.98] sm:text-base"
               >
                 <MessageCircle size={18} aria-hidden="true" />
-                Daftar via WhatsApp
+                Tanya Biaya via WhatsApp
               </a>
             </motion.div>
 
-            {/* RIGHT — Schedule card */}
+            {/* Schedule card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -747,48 +694,30 @@ export default function CalistungContent() {
               transition={{ duration: 0.45, delay: 0.1 }}
               className="flex w-[85vw] shrink-0 flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:w-[70vw] sm:p-8 lg:w-auto"
             >
-              {/* Card header */}
               <div className="flex items-center gap-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-slate-200">
                   <Clock size={22} className="text-slate-600" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 sm:text-xl">
-                  Jadwal Belajar
-                </h3>
+                <h3 className="text-lg font-bold text-slate-900 sm:text-xl">Jadwal Belajar</h3>
               </div>
 
-              {/* Schedule block */}
               <div className="rounded-xl border border-slate-100 bg-slate-50 px-5 py-5">
-                <div className="flex items-baseline gap-3">
-                  <div>
-                    <p className="text-2xl font-extrabold text-teal-700 sm:text-3xl">
-                      Senin – Jumat
-                    </p>
-                    <p className="mt-1 text-base font-semibold text-slate-700 sm:text-lg">
-                      08.00 – 17.00 WIB
-                    </p>
-                  </div>
-                </div>
+                <p className="text-2xl font-extrabold text-teal-700 sm:text-3xl">Senin – Jumat</p>
+                <p className="mt-1 text-base font-semibold text-slate-700 sm:text-lg">08.00 – 17.00 WIB</p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-500 sm:text-base">
-                  Jadwal belajar dapat disesuaikan dengan ketersediaan siswa
-                  dan orang tua.
+                  Jadwal dapat disesuaikan dengan ketersediaan siswa, termasuk
+                  sesi sore hari setelah pulang sekolah.
                 </p>
               </div>
 
-              {/* Trust box */}
               <div className="space-y-2 rounded-xl border border-slate-100 bg-slate-50/60 px-5 py-4">
                 <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
                   Keunggulan Program
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-2">
-                  {[
-                    "Fleksibel",
-                    "Pendampingan Personal",
-                    "Area Andir & Sekitarnya",
-                    "Program Pra-SD",
-                  ].map((item) => (
+                  {["Jadwal Fleksibel", "Semua Jenjang SD", "Area Andir & Sekitarnya", "Pengajar Berpengalaman"].map((item) => (
                     <div key={item} className="flex items-center gap-1.5">
-                      <Check size={12} className="shrink-0 text-teal-600" aria-hidden="true" />
+                      <Check size={12} className="shrink-0 text-teal-700" aria-hidden="true" />
                       <span className="text-sm font-medium text-slate-600">{item}</span>
                     </div>
                   ))}
@@ -796,16 +725,14 @@ export default function CalistungContent() {
               </div>
 
               <div className="flex-1" />
-
               <p className="text-xs leading-relaxed text-slate-400 sm:text-sm">
-                Program tersedia untuk anak usia Pra-SD di Andir, Bandung dan
-                sekitarnya.
+                Tersedia untuk siswa SD di Andir, Bandung dan sekitarnya.
               </p>
             </motion.div>
           </div>
 
-          {/* Reassurance block */}
-          <motion.div
+          {/* Reassurance */}
+          {/* <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -813,85 +740,100 @@ export default function CalistungContent() {
             className="mt-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-6 py-8 text-center shadow-sm sm:mt-10 sm:px-10 sm:py-10"
           >
             <h3 className="text-lg font-extrabold text-slate-900 sm:text-xl md:text-2xl">
-              Masih Bingung Menentukan Program yang Tepat?
+              Belum Yakin Program Mana yang Tepat?
             </h3>
             <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-600 sm:text-base">
               Konsultasikan kebutuhan belajar anak bersama tim Zain Ilmi. Kami
-              siap membantu memilih program yang sesuai dengan kemampuan dan
-              tujuan belajar anak.
+              siap membantu memilih program yang paling sesuai.
             </p>
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Konsultasi les calistung Bandung via WhatsApp"
+              aria-label="Konsultasi guru privat SD Bandung via WhatsApp"
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-700/20 transition-all hover:bg-teal-800 hover:shadow-lg active:scale-[0.98] sm:px-8 sm:text-base"
             >
               <MessageCircle size={18} aria-hidden="true" />
               Konsultasi via WhatsApp
             </a>
-          </motion.div>
-
+          </motion.div> */}
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* FAQ — Accordion                                               */}
+      {/* FAQ                                                            */}
       {/* ============================================================ */}
       <section
-        id="calistung-faq"
-        aria-labelledby="calistung-faq-heading"
-        className="bg-slate-50 py-14 sm:py-16 lg:py-20"
+        id="sd-faq"
+        aria-labelledby="sd-faq-heading"
+        className="bg-white py-14 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-
-          {/* Header */}
           <div className="mb-8 text-center sm:mb-10">
             <div className="mb-3 inline-flex items-center gap-1.5">
               <span aria-hidden="true" className="text-base">❓</span>
-              <span className="text-xs font-semibold uppercase tracking-widest text-teal-700 sm:text-sm">
-                FAQ
-              </span>
+              <span className="text-xs font-semibold uppercase tracking-widest text-teal-700 sm:text-sm">FAQ</span>
             </div>
             <h2
-              id="calistung-faq-heading"
+              id="sd-faq-heading"
               className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
             >
-              Pertanyaan yang Sering Diajukan Orang Tua
+              Pertanyaan yang Sering Diajukan
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
-              Berikut beberapa pertanyaan yang sering ditanyakan mengenai program
-              les calistung Bandung di Zain Ilmi.
+              Temukan jawaban atas pertanyaan umum seputar les privat SD dan
+              bimbel SD di Zain Ilmi, Andir, Bandung.
             </p>
           </div>
 
-          {/* Accordion */}
-          <CalistungFaqAccordion />
+          <SdFaqAccordion />
 
-
+          {/* Trust CTA */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            className="mt-10 rounded-2xl border border-teal-100 bg-white px-6 py-8 text-center shadow-sm sm:mt-12 sm:px-8 sm:py-10"
+          >
+            <h3 className="text-lg font-extrabold text-slate-900 sm:text-xl">
+              Masih Ada Pertanyaan Lain?
+            </h3>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600 sm:text-base">
+              Tim Zain Ilmi siap membantu menjawab pertanyaan Anda mengenai
+              program les privat SD di Bandung.
+            </p>
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Tanya lebih lanjut tentang bimbel SD Bandung via WhatsApp"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-teal-700/20 transition-all hover:bg-teal-800 hover:shadow-lg active:scale-[0.98] sm:px-8 sm:text-base"
+            >
+              <MessageCircle size={18} aria-hidden="true" />
+              Konsultasi via WhatsApp
+            </a>
+          </motion.div> */}
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* CTA                                                            */}
+      {/* FINAL CTA                                                      */}
       {/* ============================================================ */}
       <section
-        aria-labelledby="calistung-cta-heading"
+        aria-labelledby="sd-cta-heading"
         className="bg-slate-50 py-14 sm:py-16 lg:py-20"
       >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-br from-white to-teal-50/40 p-8 text-center shadow-xl sm:p-12">
+          <div className="overflow-hidden rounded-3xl border border-teal-100 bg-gradient-to-br from-white to-blue-50/40 p-8 text-center shadow-xl sm:p-12">
             <h2
-              id="calistung-cta-heading"
+              id="sd-cta-heading"
               className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
             >
-              Siap Mendaftarkan Anak ke{" "}
-              <span className="text-teal-700">Les Calistung Zain ilmi?</span>
+              Siap Membantu Anak Lebih Memahami Pelajaran Sekolah
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              Konsultasikan kesiapan belajar anak Anda bersama Zain Ilmi di
-              Andir, Bandung. Kami siap membantu si kecil belajar membaca,
-              menulis, dan berhitung dengan cara yang menyenangkan.
+              Setiap anak memiliki tantangan belajar yang berbeda. Konsultasikan kebutuhan belajar anak dan dapatkan pendampingan yang sesuai dengan kemampuannya.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
               <a
@@ -910,10 +852,8 @@ export default function CalistungContent() {
                 Kembali ke Beranda
               </Link>
             </div>
-
-            {/* Location nudge */}
             <p className="mt-6 flex items-center justify-center gap-1.5 text-sm text-slate-500">
-              <MapPin size={14} className="shrink-0 text-teal-600" aria-hidden="true" />
+              <MapPin size={14} className="shrink-0 text-teal-700" aria-hidden="true" />
               Jl. Maleber Utara, Kec. Andir, Kota Bandung
             </p>
           </div>
@@ -922,3 +862,6 @@ export default function CalistungContent() {
     </>
   );
 }
+
+
+

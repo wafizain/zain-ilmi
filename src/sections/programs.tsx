@@ -34,6 +34,7 @@ const programs: Program[] = [
     price: "Rp 120.000 / bulan",
     accentColor: "text-blue-600",
     bgColor: "bg-blue-50",
+    detailLink: "/program/les-privat-sd-bandung",
   },
   {
     icon: Target,
