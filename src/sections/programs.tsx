@@ -46,7 +46,7 @@ const programs: Program[] = [
     title: "Sekolah Menengah Atas (SMA)",
     description:
       "Fokus pada pemahaman konsep, peningkatan prestasi akademik, dan persiapan menghadapi ujian.",
-    price: "Rp 180.000 / bulan",
+    price: "Rp 200.000 / bulan",
     accentColor: "text-amber-600",
     bgColor: "bg-amber-50",
   },

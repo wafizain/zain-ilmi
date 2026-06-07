@@ -4,6 +4,29 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap, BookMarked, Trophy, CalendarCheck } from "lucide-react";
 
+const photos = [
+  {
+    src: "/foto.webp",
+    alt: "Tampak depan bimbel Zain Ilmi",
+    className: "row-span-2 aspect-[3/4]",
+  },
+  {
+    src: "/gambar-1.png",
+    alt: "Suasana belajar di Zain Ilmi",
+    className: "aspect-[4/3]",
+  },
+  {
+    src: "/gambar-2.jpg",
+    alt: "Pengajar membimbing siswa",
+    className: "aspect-[4/3]",
+  },
+  {
+    src: "/gambar-6.jpg",
+    alt: "Siswa belajar bersama",
+    className: "aspect-[3/2]",
+  },
+];
+
 const trustMetrics = [
   {
     icon: GraduationCap,
@@ -25,7 +48,7 @@ const trustMetrics = [
   },
   {
     icon: Trophy,
-    value: "10+",
+    value: "17",
     label: "Tahun Pengalaman",
     color: "text-amber-700",
     bg: "bg-amber-50",
@@ -34,8 +57,8 @@ const trustMetrics = [
   },
   {
     icon: CalendarCheck,
-    value: "⏰",
-    label: "Jam Belajar Fleksibel",
+    value: "Fleksibel",
+    label: "Jam Belajar",
     color: "text-emerald-700",
     bg: "bg-emerald-50",
     border: "border-emerald-100",
@@ -51,24 +74,57 @@ export default function About() {
       className="relative bg-white py-16 sm:py-20 md:py-20 lg:py-24 pb-8 sm:pb-10 md:pb-12"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Two-Column Layout */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          {/* Left Column - Image */}
+        {/* Two-Column Layout: Photos + Content */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+          {/* Left Column - 2x2 Photo Grid */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="grid grid-cols-2 gap-3 sm:gap-4"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-2xl shadow-slate-900/10">
+            {/* Photo 1 - Top left */}
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
               <Image
-                src="/foto.webp"
-                alt="Suasana belajar di Zain Ilmi"
+                src={photos[0].src}
+                alt={photos[0].alt}
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                className="object-cover"
-                priority
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 280px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Photo 2 - Top right */}
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
+              <Image
+                src={photos[1].src}
+                alt={photos[1].alt}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 280px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Photo 3 - Bottom left */}
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
+              <Image
+                src={photos[2].src}
+                alt={photos[2].alt}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 280px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            {/* Photo 4 - Bottom right */}
+            <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-lg">
+              <Image
+                src={photos[3].src}
+                alt={photos[3].alt}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 280px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
           </motion.div>
@@ -87,10 +143,10 @@ export default function About() {
 
               <h2
                 id="about-heading"
-                className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-5xl"
+                className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-5xl"
               >
                 <span className="text-teal-700">Membangun </span>
-                 Pemahaman, Kepercayaan Diri,dan Prestasi{" "}
+                Pemahaman, Kepercayaan Diri dan Prestasi{" "}
               </h2>
             </motion.div>
 
@@ -101,7 +157,10 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-5 sm:text-lg"
             >
-              Zain Ilmi merupakan bimbingan belajar yang mendampingi siswa dari Pra-SD hingga SMA dengan suasana belajar yang nyaman, jam belajar yang fleksibel, dan pendekatan yang lebih personal untuk membantu setiap siswa berkembang secara optimal.
+              Zain Ilmi merupakan bimbingan belajar yang mendampingi siswa dari
+              Pra-SD hingga SMA dengan suasana belajar yang nyaman, jam belajar
+              yang fleksibel, dan pendekatan yang lebih personal untuk membantu
+              setiap siswa berkembang secara optimal.
             </motion.p>
           </div>
         </div>
