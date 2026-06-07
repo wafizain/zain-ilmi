@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: `${siteConfig.name} | Bimbel Bandung untuk Pra-SD, SD, SMP, dan SMA`,
+    default: "Bimbel Andir Bandung | Zain Ilmi - Les Pra-SD, SD, SMP, SMA",
     template: `%s | ${siteConfig.name}`,
   },
 
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: `${siteConfig.name} | Bimbel Bandung untuk Pra-SD, SD, SMP, dan SMA`,
+    title: "Bimbel Andir Bandung | Zain Ilmi - Les Pra-SD, SD, SMP, SMA",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,

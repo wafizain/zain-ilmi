@@ -31,6 +31,13 @@ export default function Location() {
             tenang, dan mendukung perkembangan akademik siswa dari Pra-SD hingga SMA.
           </p>
 
+          <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
+            Berlokasi strategis di Jl. Maleber Utara, Kecamatan Andir, Kota
+            Bandung — mudah dijangkau dari Maleber, Garuda, Dunguscariang,
+            Ciroyom, dan sekitarnya. Lokasi yang dekat membuat jadwal belajar
+            anak lebih fleksibel dan nyaman.
+          </p>
+
           <div className="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
             <div className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 sm:gap-4 sm:p-5">
               <div className="shrink-0 rounded-xl bg-teal-100 p-2.5 text-teal-700 sm:p-3">
@@ -55,7 +62,7 @@ export default function Location() {
                 <h3 className="font-bold text-slate-900">Jam Buka</h3>
 
                 <p className="mt-1 text-sm text-slate-600 sm:text-base">
-                  Senin - Sabtu • 08.00 - 17.00
+                  Senin - Jumat • 08.00 - 17.00
                 </p>
               </div>
             </div>

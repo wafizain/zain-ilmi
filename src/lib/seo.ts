@@ -12,27 +12,29 @@ export const siteConfig = {
   language: "id",
 
   description:
-    "Bimbel di Bandung untuk Pra-SD, Calistung, SD, SMP, dan SMA dengan suasana belajar nyaman dan pendampingan personal.",
+    "Bimbel di Andir, Bandung untuk Pra-SD, Calistung, SD, SMP, dan SMA. Pendampingan personal, jam belajar fleksibel, dan pengalaman mengajar 17+ tahun.",
 
   longDescription:
-    "Zain Ilmi adalah bimbingan belajar rumahan di Bandung yang menyediakan program TK, Pra-SD, Calistung, SD, SMP, dan SMA. Suasana belajar yang hangat, pendampingan personal, dan pembelajaran terarah untuk membantu perkembangan akademik siswa.",
+    "Zain Ilmi adalah bimbingan belajar di Kecamatan Andir, Kota Bandung yang menyediakan program Pra-SD, Calistung, SD, SMP, dan SMA. Dengan pengalaman lebih dari 17 tahun, suasana belajar yang hangat, pendampingan personal, dan jam belajar fleksibel untuk membantu perkembangan akademik siswa di Bandung.",
 
   keywords: [
     "bimbel Bandung",
+    "bimbel Andir Bandung",
     "bimbingan belajar Bandung",
-    "calistung Bandung",
-    "bimbel calistung",
+    "bimbingan belajar Andir",
     "bimbel SD Bandung",
     "bimbel SMP Bandung",
     "bimbel SMA Bandung",
-    "bimbel rumahan Bandung",
+    "calistung Bandung",
+    "bimbel calistung",
     "les privat Bandung",
     "les anak Bandung",
     "bimbel Maleber",
-    "bimbel Andir",
+    "bimbel Garuda Bandung",
+    "bimbel Dunguscariang",
+    "bimbel rumahan Bandung",
     "Zain Ilmi",
-    "bimbingan belajar TK",
-    "Pra-SD",
+    "Pra-SD Bandung",
   ],
 
   // Kontak
@@ -57,14 +59,17 @@ export const siteConfig = {
     longitude: 107.572229,
   },
 
-  // Jam buka
+  // Jam buka — Senin s.d. Jumat, 08.00–17.00 WIB (4 pertemuan/minggu, jam fleksibel)
   openingHours: [
     {
-      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "13:00",
-      closes: "20:00",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
     },
   ],
+
+  // Tahun berdiri (17+ tahun pengalaman)
+  foundingYear: "2008",
 
   // Sosial
   social: {
@@ -100,6 +105,7 @@ export function buildOrganizationSchema() {
     image: `${siteConfig.url}${siteConfig.ogImage}`,
     description: siteConfig.longDescription,
     telephone: siteConfig.phoneInternational,
+    foundingDate: siteConfig.foundingYear,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -112,17 +118,42 @@ export function buildOrganizationSchema() {
   };
 }
 
+const PROGRAMS = [
+  {
+    name: "Bimbel Pra-SD & Calistung",
+    description:
+      "Program calistung (membaca, menulis, berhitung) untuk anak Pra-SD melalui metode belajar menyenangkan dan interaktif.",
+  },
+  {
+    name: "Bimbel SD",
+    description:
+      "Memperkuat pemahaman dasar akademik dan membangun rasa percaya diri siswa SD dalam mengikuti pelajaran sekolah.",
+  },
+  {
+    name: "Bimbel SMP",
+    description:
+      "Pendampingan belajar terarah untuk membantu siswa SMP menghadapi materi yang semakin kompleks.",
+  },
+  {
+    name: "Bimbel SMA",
+    description:
+      "Fokus pada pemahaman konsep, peningkatan prestasi akademik, dan persiapan ujian untuk siswa SMA.",
+  },
+];
+
 export function buildLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "EducationalOrganization"],
     "@id": `${siteConfig.url}/#localbusiness`,
     name: siteConfig.name,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
+    logo: `${siteConfig.url}/logo.svg`,
     url: siteConfig.url,
     telephone: siteConfig.phoneInternational,
     description: siteConfig.description,
     priceRange: "$$",
+    foundingDate: siteConfig.foundingYear,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address.street,
@@ -136,15 +167,35 @@ export function buildLocalBusinessSchema() {
       latitude: siteConfig.geo.latitude,
       longitude: siteConfig.geo.longitude,
     },
+    hasMap: `https://www.google.com/maps?q=${siteConfig.geo.latitude},${siteConfig.geo.longitude}`,
     openingHoursSpecification: siteConfig.openingHours.map((spec) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: spec.days,
       opens: spec.opens,
       closes: spec.closes,
     })),
-    areaServed: {
-      "@type": "City",
-      name: "Bandung",
+    areaServed: [
+      { "@type": "City", name: "Kota Bandung" },
+      { "@type": "AdministrativeArea", name: "Kecamatan Andir" },
+      { "@type": "Place", name: "Maleber" },
+      { "@type": "Place", name: "Garuda" },
+      { "@type": "Place", name: "Dunguscariang" },
+    ],
+    sameAs: Object.values(siteConfig.social).filter(Boolean),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Program Bimbingan Belajar Zain Ilmi",
+      itemListElement: PROGRAMS.map((program) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Course",
+          name: program.name,
+          description: program.description,
+          provider: {
+            "@id": `${siteConfig.url}/#organization`,
+          },
+        },
+      })),
     },
   };
 }
@@ -175,6 +226,21 @@ export function buildFAQSchema(items: { question: string; answer: string }[]) {
         "@type": "Answer",
         text: item.answer,
       },
+    })),
+  };
+}
+
+export function buildBreadcrumbSchema(
+  items: { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteConfig.url}${item.path}`,
     })),
   };
 }

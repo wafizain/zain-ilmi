@@ -8,18 +8,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // mengikuti hash sebagai context tambahan.
   const sections = [
     "",
+    "#tentang",
+    "#perjalanan",
     "#program",
-    "#galeri",
     "#testimoni",
     "#lokasi",
     "#faq",
     "#kontak",
   ];
 
-  return sections.map((path) => ({
+  // Halaman landing terpisah yang dapat diindeks
+  const pages = ["/program/calistung-bandung"];
+
+  const sectionEntries = sections.map((path) => ({
     url: `${siteConfig.url}/${path}`,
     lastModified,
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: path === "" ? 1.0 : 0.7,
   }));
+
+  const pageEntries = pages.map((path) => ({
+    url: `${siteConfig.url}${path}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...sectionEntries, ...pageEntries];
 }

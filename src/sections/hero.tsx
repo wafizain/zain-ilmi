@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
+import { MessageCircle, ChevronDown } from "lucide-react";
 
 import { motion } from "framer-motion";
 import { siteConfig } from "@/lib/seo";
@@ -60,6 +60,12 @@ export default function Hero() {
             <span className="text-teal-700"> Didampingi Hingga Paham</span>
           </motion.h1>
 
+          {/* Keyword context for SEO (visually hidden) */}
+          <p className="sr-only">
+            Zain Ilmi adalah bimbel di Andir, Bandung untuk Pra-SD, calistung,
+            SD, SMP, dan SMA.
+          </p>
+
           {/* Supporting Text */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +73,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 text-base leading-relaxed text-slate-600 sm:mt-5 sm:text-lg md:text-xl"
           >
-            Bimbingan belajar untuk Pra-SD hingga SMA dengan pendampingan personal, jam belajar yang fleksibel, dan pengalaman mengajar lebih dari 10 tahun.
+            Bimbingan belajar untuk Pra-SD hingga SMA di Andir, Bandung dengan pendampingan personal, jam belajar yang fleksibel, dan pengalaman mengajar lebih dari 17 tahun.
           </motion.p>
 
           {/* CTA Buttons */}
